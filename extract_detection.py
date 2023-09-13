@@ -8,9 +8,8 @@ from utils.general import non_max_suppression, scale_coords
 def extract(request):
     img_list = []
     for extension in request["extensions"]:
-        img_list.extend(glob.glob(request["img_dir"] + extension))
+        img_list.extend(glob.glob(os.path.join(request["img_dir"], extension)))
         print("AAA", img_list)
-    print(request["img_dir"])
     model = attempt_load(request["model"], map_location='cpu')
     response = []
     for img_path in img_list:

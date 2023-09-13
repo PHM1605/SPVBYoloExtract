@@ -13,6 +13,5 @@ app = FastAPI()
 
 @app.get("/extract_folder")
 def get_json(img_folder: ImageFolderRequest):
-    print("STARTTTT")
     response = extract_detection.extract(img_folder.model_dump())
     return response
