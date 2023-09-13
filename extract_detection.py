@@ -9,7 +9,8 @@ def extract(request):
     img_list = []
     for extension in request["extensions"]:
         img_list.extend(glob.glob(request["img_dir"] + extension))
-    print(img_list)
+        print("AAA", img_list)
+    print(request["img_dir"])
     model = attempt_load(request["model"], map_location='cpu')
     response = []
     for img_path in img_list:
